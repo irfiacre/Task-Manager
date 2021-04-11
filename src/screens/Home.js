@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,28 +6,47 @@ import {
 } from 'react-native';
 import Task from '../components/Task';
 import Footer from '../components/footer';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addTasks,
+  fetchAllTasks,
+  deleteTasks
+} from '../redux/actions/allActions';
+
 
 export default ({ navigation })=> {
+  
+  const tasksStore = useSelector(store => store.allTasks);
+  const dispatch = useDispatch();
 
   const [ taskState,setTaskState ] = useState({
     items:[],
+    render: false,
   });
   
+  
+  useEffect(()=>{
+    dispatch( fetchAllTasks() );
+  },[taskState.render]);
+  
   const onTaskSubmit = (task)=>{ 
-    const taskExist = taskState.items.find(elt => elt.text === task.text );
+    const taskExist = tasksStore.data.find(elt => elt.text === task.text);
       if (!taskExist) {
-          setTaskState((prevState)=>({
-            ...prevState,
-            items:prevState.items.concat(task),
-          }))
+          dispatch(addTasks (task));
         };
+        
+    setTaskState((prevState) => ({
+      ...prevState,
+      render: !prevState.render,
+    }));
   }
   
-  const deleteTask = (taskText)=>{
-        setTaskState((prevState) => ({
-          ...prevState,
-          items: prevState.items.filter(elt => elt.text !== taskText),
-        }));
+  const deleteTask = (task)=>{
+    dispatch( deleteTasks(task) );
+    setTaskState((prevState) => ({
+      ...prevState,
+      render: !prevState.render,
+    }));
   }
   
   return (
@@ -36,13 +55,12 @@ export default ({ navigation })=> {
               <Text style={styles.sectionTitle}>Today's tasks</Text>
               <View style={styles.items}>
                   {
-                    taskState.items[0]?
-                        taskState.items.map((task, index) =>
-                        
+                    tasksStore.data[0]?
+                        tasksStore.data.map((task, index) =>
                             <Task 
                               text = { task.text }
                               key = { `${task.text} ${index}` }
-                              onDeleteTask={deleteTask}
+                              onDeleteTask={()=>deleteTask(task)}
                               navigation={navigation}
                             />):
                                 

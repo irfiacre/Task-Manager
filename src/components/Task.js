@@ -10,6 +10,7 @@ import {
     useFonts,
     Roboto_400Regular
 } from '@expo-google-fonts/roboto'
+import { MaterialIcons  } from '@expo/vector-icons';
 
 export default  (props) => {
     const {
@@ -23,10 +24,10 @@ export default  (props) => {
     });
   
     if (!fontsLoaded) {
-      return <AppLoading />;
+      return <Text style={styles.noContentTitle}> Loading...</Text>;
     }
     
-    const deleteTask = text => onDeleteTask(text);
+    const deleteTask = () => onDeleteTask();
     
   return (
     <View style={styles.container}>
@@ -39,8 +40,13 @@ export default  (props) => {
          </View>
            <TouchableOpacity 
              style={styles.circular}
-             onPress={ ()=> deleteTask(text)} 
+             onPress={deleteTask} 
            >
+             <MaterialIcons  
+               name="delete" 
+               size={30} 
+               color="#55BCF6"
+             />
            </TouchableOpacity>
     </View>
   );
@@ -72,12 +78,6 @@ const styles = StyleSheet.create({
   sectionTitle:{
     fontFamily: 'Roboto_400Regular',
     width:"80%",
-  },
-  circular:{
-    width: 12,
-    height: 12,
-    borderColor: "#55BCF6",
-    borderRadius:5,
-    borderWidth:2,
+    fontSize:18,
   },
 });

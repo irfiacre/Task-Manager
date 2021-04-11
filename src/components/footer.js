@@ -5,7 +5,8 @@ import {
     View,
     TouchableOpacity
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons  } from '@expo/vector-icons';
+import RandomId from '../helpers/RandomId'
 
 export default (props)=> {
   const {
@@ -20,7 +21,10 @@ export default (props)=> {
   
   const onChangeText = (text) => setFooterSate({ ...footerState, text });
  
-  const onSubmit = (data) => onTaskSubmit(data);
+  const onSubmit = (data) => onTaskSubmit({
+    id: RandomId(),
+    text: data.text.charAt(0).toUpperCase() + data.text.slice(1),
+  });
     
   return (
       <View style={styles.container}>
@@ -36,7 +40,7 @@ export default (props)=> {
             style={styles.iconWrapper} 
             onPress={ ()=> onSubmit(footerState) }
           >
-             <Ionicons 
+             <MaterialIcons  
                name="add" 
                size={32} 
                color="#E8EAED"

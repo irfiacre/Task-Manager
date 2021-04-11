@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/Home';
 import TaskScreen from '../screens/Task';
-import { Image, Text, View } from 'react-native';
+import EditTaskScreen from '../screens/EditTask';
 import NavigationComponent from '../components/navigation/TopNavigation';
 
 const Stack = createStackNavigator();
@@ -19,6 +19,9 @@ export default () => {
                 
                 if (route.params && route.params.text) {
                     routeText = route.params.text;
+                }
+                if (route.name === "EditTask") {
+                    routeText = `Edit: ${route.params.text}`;
                 }
                 
                 return {
@@ -42,6 +45,10 @@ export default () => {
         <Stack.Screen 
             name="Task" 
             component={TaskScreen} 
+        />
+        <Stack.Screen 
+            name="EditTask" 
+            component={EditTaskScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
