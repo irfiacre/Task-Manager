@@ -22,8 +22,14 @@ export default ({ navigation })=> {
   const [ taskState,setTaskState ] = useState({
     items:[],
     render: false,
+    isAuthenticated: false,
   });
   
+  // useEffect(()=>{
+  //   if (!taskState.isAuthenticated) {
+  //     navigation.navigate("Login");
+  //   }
+  // },[]);
   
   useEffect(()=>{
     dispatch( fetchAllTasks() );
@@ -93,11 +99,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   
-  textInput:{
-     height: 40, 
-     borderColor: 'gray', 
-     borderWidth: 1,
-  },
   noContentTitle: {
       fontFamily: 'monospace',
       fontSize: 22,

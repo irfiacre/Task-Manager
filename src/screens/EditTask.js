@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
-  TouchableOpacity,
   StyleSheet,
   Text,
   View,
-  TextInput
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { editTasks } from '../redux/actions/allActions';
+import TextInputComponent from "../components/smallComponents/TextInput"
+import ButtonComponent from "../components/smallComponents/Button"
 
 export default ({ route,navigation })=> {
   const { text } = route.params;
@@ -44,18 +44,17 @@ export default ({ route,navigation })=> {
               <Text style={styles.sectionTitle}>
                   This is the edit page
               </Text>
-              <TextInput
-                 style={ styles.textInput }
-                 onChangeText={ text => onChangeText(text) }
+              <TextInputComponent
+                 handleOnChange={onChangeText}
                  value={ footerState.text || '' }
               />
         </View>
-        <TouchableOpacity 
-         style={styles.button}
-         onPress = { onNewChangesSave }
-         >
-         <Text style={styles.text}> Save Changes </Text>
-        </TouchableOpacity>
+        <View>
+            <ButtonComponent 
+               handleOnPress={onNewChangesSave}
+               value={'Save Changes'}
+            />
+        </View>
     </View>
   );
 }
@@ -74,24 +73,24 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
   },
   
-  text: {
-      fontFamily: 'monospace',
-      fontSize: 18,
-      color: "#000",
-      textAlign:"center",
-    },
+  // text: {
+  //     fontFamily: 'monospace',
+  //     fontSize: 18,
+  //     color: "#000",
+  //     textAlign:"center",
+  //   },
     
-  button: {
-      backgroundColor:"#fff",
-      borderRadius:5,
-      padding: 20,
-      marginTop: 10,
-    },
-  textInput: {
-     height: 50,
-     borderColor: '#fff',
-     backgroundColor:"#fff",
-     padding:10,
-     fontFamily: 'monospace',
-  },
+  // button: {
+  //     backgroundColor:"#fff",
+  //     borderRadius:5,
+  //     padding: 20,
+  //     marginTop: 10,
+  //   },
+  // textInput: {
+  //    height: 50,
+  //    borderColor: '#fff',
+  //    backgroundColor:"#fff",
+  //    padding:10,
+  //    fontFamily: 'monospace',
+  // },
 });

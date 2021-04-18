@@ -14,13 +14,12 @@ export default (props)=> {
     previous, 
     navigation,
   } = props;
-  
+  console.log(">>>>>", previous);
   return (
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
               {
-                previous && 
-                <TouchableOpacity 
+                previous ? <TouchableOpacity 
                   style={styles.iconWrapper} 
                   onPress={ ()=> navigation.goBack() }
                 >
@@ -29,10 +28,10 @@ export default (props)=> {
                      size={30} 
                      color="#FFF"
                    />
-                </TouchableOpacity>
+                </TouchableOpacity>:null
               }
               
-              <Text style={styles.text}> {text || "Task Manager"}</Text>
+              <Text style={styles.text}> {text? text : "Task Manager"}</Text>
               
               </View>
         
