@@ -35,5 +35,6 @@ const styles = StyleSheet.create({
      backgroundColor:"#fff",
      padding:10,
      fontFamily: 'monospace',
+     marginTop:10,
   },
 });

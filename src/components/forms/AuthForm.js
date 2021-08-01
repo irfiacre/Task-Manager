@@ -57,25 +57,20 @@ export default (props)=> {
                value={isSignup ?'Create Account':'Login'}
             />
         </View>
-        <Text style={styles.text}>
-              <Text style={styles.coloredText}>{ isSignup ?'Login up Here':'Sign up Here' }</Text>
-        </Text>
+            <Text style={styles.coloredText}>
+              { isSignup ?'Login':'Or create an Account' }
+            </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  text: {
-      fontFamily: 'monospace',
-      fontSize: 18,
-      color: "#000",
-      textAlign:"center",
-    },
   coloredText: {
       fontFamily: 'monospace',
       fontSize: 18,
       color: "#8E9492",
       textAlign:"center",
+      marginTop: 10,
     },
     
 });

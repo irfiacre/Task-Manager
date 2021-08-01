@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1b1e6732-1a1b-49ce-8ca5-e51ffb87521c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/AuthForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/AuthForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/smallComponents/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/smallComponents/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/smallComponents/TextInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/smallComponents/TextInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Loading.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rLQp3EOP5pHchpsFnyGkBvkdaf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b1e6732-1a1b-49ce-8ca5-e51ffb87521c" name="Default Changelist" comment="" />
+      <created>1618753071673</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618753071673</updated>
+    </task>
+    <servers />
+  </component>
+</project>

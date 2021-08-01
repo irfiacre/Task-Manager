@@ -1,4 +1,5 @@
-import React from 'react';
+import firebase from 'firebase';
+import React, { useEffect } from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -7,7 +8,19 @@ import {
 } from 'react-native';
 
 export default ({ route,navigation })=> {
-
+  const checkLoggedIn = ()=>{
+    firebase.auth().onAuthStateChanged((user)=>{
+        if (user) {
+          navigation.navigate("Home");
+        } else {
+          navigation.navigate("Login");
+        }
+    })
+  }
+  useEffect(()=>{
+      checkLoggedIn();
+  }, []);
+  
   return (
     <View style={styles.container}>
         <View style={styles.taskWrapper}>
